@@ -7,7 +7,7 @@
     </div>
     <div class="container py-8">
       <div class="flex items-center pb-6">
-        <h1 class="text-white uppercase mr-3">Member</h1>
+        <h1 class="text-white uppercase mr-3">Member (Dummy data)</h1>
         <div class="h-px w-full bg-light"></div>
       </div>
       <div class="flex flex-col md:flex-row flex-wrap">
@@ -18,8 +18,8 @@
             <div class="flex items-center">
               <div v-if="stat.number > stat.numberOld" class="flex items-center justify-center"><i class="text-lg font-bold material-icons text-green-500">arrow_upward</i></div>
               <div v-if="stat.number < stat.numberOld" class="flex items-center justify-center"><i class="text-lg font-bold material-icons text-red-500">arrow_downward</i></div>
-              <div v-if="stat.number === stat.numberOld"><p class="text-xs uppercase text-white">Changed</p></div>
-              <p :class="`text-xs uppercase ml-2 ${stat.number > stat.numberOld ? 'text-green-500' : 'text-white'} ${stat.number < stat.numberOld ? 'text-red-500' : 'text-white'}`"> {{ Math.abs(stat.number - stat.numberOld) }}<span> {{ stat.unit }} </span> since last month</p>
+              <div v-if="stat.number === stat.numberOld"><p class="text-xs uppercase text-white">~</p></div>
+              <p :class="`text-xs uppercase ml-2 ${stat.number > stat.numberOld ? 'text-green-500' : 'text-white'} ${stat.number < stat.numberOld ? 'text-red-500' : 'text-white'}`"> {{ Math.abs(stat.number - stat.numberOld).toFixed(2) }}<span> {{ stat.unit }} </span> since last month</p>
             </div>
           </div>
         </div>
@@ -27,7 +27,7 @@
     </div>
     <div class="container py-8">
       <div class="flex items-center pb-6">
-        <h1 class="text-white uppercase mr-3">Operational</h1>
+        <h1 class="text-white uppercase mr-3">Operational (Dummy data)</h1>
         <div class="h-px w-full bg-light"></div>
       </div>
       <div class="flex flex-col md:flex-row flex-wrap">
@@ -38,8 +38,8 @@
             <div class="flex items-center">
               <div v-if="stat.number > stat.numberOld" class="flex items-center justify-center"><i class="text-lg font-bold material-icons text-green-500">arrow_upward</i></div>
               <div v-if="stat.number < stat.numberOld" class="flex items-center justify-center"><i class="text-lg font-bold material-icons text-red-500">arrow_downward</i></div>
-              <div v-if="stat.number === stat.numberOld"><p class="text-xs uppercase text-white">Changed</p></div>
-              <p :class="`text-xs uppercase ml-2 ${stat.number > stat.numberOld ? 'text-green-500' : 'text-white'} ${stat.number < stat.numberOld ? 'text-red-500' : 'text-white'}`"> {{ Math.abs(stat.number - stat.numberOld) }}<span> {{ stat.unit }} </span> since last month</p>
+              <div v-if="stat.number === stat.numberOld"><p class="text-xs uppercase text-white">~</p></div>
+              <p :class="`text-xs uppercase ml-2 ${stat.number > stat.numberOld ? 'text-green-500' : 'text-white'} ${stat.number < stat.numberOld ? 'text-red-500' : 'text-white'}`"> {{ Math.abs(stat.number - stat.numberOld).toFixed(2) }}<span> {{ stat.unit }} </span> since last month</p>
             </div>
           </div>
         </div>
@@ -48,7 +48,7 @@
     <footer class="container">
       <div class="border-t py-8 border-light">
         <img src="anthem.svg" class="h-5"></img>
-        <p class="py-4 text-xs text-gray-300">© Copyright 2016</p>
+        <p class="py-4 text-xs text-gray-300">© Copyright 2019</p>
       </div>
     </footer>
   </div>
@@ -59,23 +59,21 @@ export default {
   name: 'App',
   data: function() {
     return {
-
       statsMember: [
-        {title: 'Member Use Overall Population', number: '81', numberOld: '81', unit: '%'},
-        {title: 'Member Ratio with Anthem Anywhere', number: '72', numberOld: '70', unit: '%'},
-        {title: 'Member Re-Use', number: '46', numberOld: '70', unit: '%' },
+        {title: 'Member Use Overall Population', number: '12', numberOld: '11', unit: '%'},
+        {title: 'Member Ratio with Anthem Anywhere', number: '33', numberOld: '30', unit: '%'},
+        {title: 'Member Re-Use', number: '65', numberOld: '68', unit: '%' },
         {title: 'Member Success Rate', number: '85', numberOld: '70', unit: '%'},
-        {title: 'Member Success Rate 1st Conversation', numberOld: '70', number: '80', unit: '%'},
-        {title: 'Member Re-Use based on Success/Failure', number: '63', numberOld: '70', unit: '%'}
+        {title: 'Member Success Rate 1st Conversation', numberOld: '70', number: '69', unit: '%'},
+        {title: 'Member Re-Use based on Success/Failure', number: '63', numberOld: '63', unit: '%'}
       ],
       statsOperational: [
         {title: 'Updated Impact Change for Fixes', number: '81', numberOld: '70', unit: '%'},
         {title: 'Ambiguous Rate', number: '72', numberOld: '70', unit: '%'},
-        {title: 'Avg Response Time', number: '46', numberOld: '70', unit: 'min.' },
-        {title: 'Number of Re-Directs Post Success', number: '46', numberOld: '70', unit: '' },
-        {title: 'App Ratings', number: '85', numberOld: '70', unit: '%'}
+        {title: 'Avg Response Time', number: '3', numberOld: '3', unit: 'seconds' },
+        {title: 'Number of Re-Directs Post Success', number: '46', numberOld: '40', unit: '' },
+        {title: 'App Ratings', number: '4.7', numberOld: '4.6', unit: ''}
       ]
-
     };
   },
   computed: {
