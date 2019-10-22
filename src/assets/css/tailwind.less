@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply text-gray-600;
+}
+
+h1, h2,h3,h4,h5,h6 {
+  @apply text-gray-800;
+}
+
+// disabled buttons
+.btn {
+  @apply text-base bg-green-500 rounded text-white py-2 px-5 py-3 border border-green-600;
+  &:hover {
+    @apply bg-green-400 border-green-500;
+  }
+  &:focus {
+    @apply outline-none;
+  }
+}
+
+button:disabled {
+  opacity: .3;
+  background: grey;
+  border-color: grey;
+  pointer-events: none;
+}
+
+// fade in and up
+[class*='width-toggle'] {
+  transition: all 1s ease;
+  width: auto !important;
+  max-width: 600px;
+  &.width-toggle-enter,
+  &.width-toggle-leave-to {
+    max-width: 0;
+  }
+}
