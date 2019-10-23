@@ -7,7 +7,7 @@
     </div>
     <div class="container py-8">
       <div class="flex items-center pb-6">
-        <h1 class="text-white uppercase mr-3">Member (Dummy data)</h1>
+        <h1 class="text-white uppercase mr-3 flex-none">Member (Dummy data)</h1>
         <div class="h-px w-full bg-light"></div>
       </div>
       <div class="flex flex-col md:flex-row flex-wrap">
@@ -27,7 +27,7 @@
     </div>
     <div class="container py-8">
       <div class="flex items-center pb-6">
-        <h1 class="text-white uppercase mr-3">Operational (Dummy data)</h1>
+        <h1 class="text-white uppercase mr-3 flex-none">Operational (Dummy data)</h1>
         <div class="h-px w-full bg-light"></div>
       </div>
       <div class="flex flex-col md:flex-row flex-wrap">
