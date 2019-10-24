@@ -8,10 +8,10 @@
     <div class="container bg-dark rounded-lg my-12">
       <h1 class="p-6 text-white uppercase mr-3 flex-none">Reporting Review 2019</h1>
       <div class="flex items-center">
-        <button @click="member = true, operational = false" :class="`focus:outline-none w-1/2 p-5 ${ member ? 'bg-chosen' : ''}`" style="border-radius:8px 8px 0px 0px;">
+        <button @click="member = true, operational = false" :class="`focus:outline-none w-1/2 p-5 ${ member ? 'bg-chosen border-t border-blue-700' : ''}`" style="border-radius:8px 8px 0px 0px;">
           <h1 class="text-sm uppercase text-gray-400">Member (Dummy Data)</h1>
         </button>
-        <button @click="operational = true, member = false" :class="`focus:outline-none w-1/2 p-5 ${ operational ? 'bg-chosen' : ''}`" style="border-radius:8px 8px 0px 0px;">
+        <button @click="operational = true, member = false" :class="`focus:outline-none w-1/2 p-5 ${ operational ? 'bg-chosen border-t border-blue-700' : ''}`" style="border-radius:8px 8px 0px 0px;">
           <h1 class="text-sm uppercase text-gray-400">Operational (Dummy Data)</h1>
         </button>
       </div>
