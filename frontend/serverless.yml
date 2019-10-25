@@ -1,0 +1,58 @@
+service: frontend
+
+provider:
+  name: aws
+  profile: eth-owl-admin
+  region: us-east-1
+  stage: ${opt:stage, 'dev'}  # production
+
+plugins:
+  - serverless-finch
+
+resources:
+  Resources:
+    Frontend:
+      Type: AWS::S3::Bucket
+      Properties:
+        AccelerateConfiguration:
+          AccelerationStatus: Enabled
+
+    Identity:
+      Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
+      Properties:
+        CloudFrontOriginAccessIdentityConfig:
+          Comment: 'allow cdn access to frontend'
+
+    FrontendBucketPolicy:
+      Type: AWS::S3::BucketPolicy
+      Properties:
+        Bucket:
+          Ref: Frontend
+        PolicyDocument:
+          Statement:
+            - Action: s3:GetObject
+              Effect: Allow
+              Principal:
+                AWS:
+                  Fn::Join: [ ' ', [ 'arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity', Ref: Identity ] ]
+              Resource:
+                Fn::Join: [ '/', [ Fn::GetAtt: [ Frontend, Arn ], '*' ] ]
+              Sid: 1
+
+  Outputs:
+    FrontendDomainName:
+      Value:
+        Fn::GetAtt: [ Frontend, DomainName ]
+
+    FrontendName:
+      Value:
+        Ref: Frontend
+
+    OriginAccessIdentity:
+      Value:
+        Ref: Identity
+
+custom:
+  client:  # sls client deploy --no-cors-change --no-policy-change --no-config-change
+    bucketName: ${cf:${self:service}-${self:provider.stage}.FrontendName.Value}
+    distributionFolder: ../dist

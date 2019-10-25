@@ -65,20 +65,20 @@ export default {
   name: 'App',
   data: function() {
     return {
-      type: 'member',
+      type: 'operational',
       period: 'MONTH',
       stats: [
-        {type: 'member', title: 'Member Use Overall Population', number: '12', numberOld: '11', unit: '%', date: '23/10/2019', description: 'The ratio of Chatbot\'s monthly active users compared to Anthem\'s overall population of users', show: false },
-        {type: 'member', title: 'Member Ratio within Sydney Health Mobile App', number: '33', numberOld: '30', unit: '%', date: '8/10/2019', description: 'todo', show: false},
-        {type: 'member', title: 'Member Re-Use', number: '65', numberOld: '68', unit: '%', date: '8/10/2019', description: 'todo', show: false },
-        {type: 'member', title: 'Member Success Rate', number: '85', numberOld: '70', unit: '%', date: '8/10/2019', description: 'todo', show: false},
-        {type: 'member', title: 'Member Success Rate 1st Conversation', numberOld: '70', number: '69', unit: '%', date: '8/10/2019', description: 'todo', show: false},
-        {type: 'member', title: 'Member Re-Use based on Success/Failure', number: '63', numberOld: '63', unit: '%', date: '8/10/2019', description: 'todo', show: false},
-        {type: 'operational', title: 'Updated Impact Change for Fixes', number: '81', numberOld: '70', unit: '%', date: '8/10/2019', description: 'todo', show: false},
-        {type: 'operational', title: 'Ambiguous Rate', number: '72', numberOld: '70', unit: '%', date: '8/10/2019', description: 'todo', show: false},
-        {type: 'operational', title: 'Avg Response Time', number: '3', numberOld: '3', unit: 'sec.', date: '8/10/2019', description: 'todo', show: false },
-        {type: 'operational', title: 'Number of Re-Directs Post Success', number: '46', numberOld: '40', unit: '', date: '8/10/2019', description: 'todo', show: false },
-        {type: 'operational', title: 'App Ratings', number: '4.7', numberOld: '4.6', unit: '', date: '8/10/2019', description: 'todo', show: false}
+        {type: 'member', title: 'Member Use Overall Population', number: '~', numberOld: '~', unit: '%', date: 'NA', description: 'The ratio of Chatbot\'s monthly active users compared to Anthem\'s overall population of users', show: false },
+        {type: 'member', title: 'Member Ratio within Sydney Health Mobile App', number: '~', numberOld: '~', unit: '%', date: 'NA', description: 'todo', show: false},
+        {type: 'member', title: 'Member Re-Use', number: '~', numberOld: '~', unit: '%', date: 'NA', description: 'todo', show: false },
+        {type: 'member', title: 'Member Success Rate', number: '80.78', numberOld: '~', unit: '%', date: '10/23/2019', description: 'todo', show: false},
+        {type: 'member', title: 'Member Success Rate 1st Conversation', numberOld: '~', number: '~', unit: '%', date: 'NA', description: 'todo', show: false},
+        {type: 'member', title: 'Member Re-Use based on Success/Failure', number: '~', numberOld: '~', unit: '%', date: 'NA', description: 'todo', show: false},
+        {type: 'operational', title: 'Updated Impact Change for Fixes', number: '~', numberOld: '70', unit: '%', date: '8/10/2019', description: 'todo', show: false},
+        {type: 'operational', title: 'Ambiguous Rate', number: '8.51', numberOld: '~', unit: '%', date: '10/23/2019', description: 'todo', show: false},
+        {type: 'operational', title: 'Avg Response Time', number: '~', numberOld: '~', unit: 'sec.', date: '8/10/2019', description: 'todo', show: false },
+        {type: 'operational', title: 'Number of Re-Directs Post Success', number: '~', numberOld: '~', unit: '', date: '8/10/2019', description: 'todo', show: false },
+        {type: 'operational', title: 'App Ratings', number: '4.7', numberOld: '4.0', unit: '', date: '10/01/2019', description: 'todo', show: false}
       ]
     };
   },

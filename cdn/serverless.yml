@@ -1,0 +1,53 @@
+service: cdn
+
+provider:
+  name: aws
+  profile: eth-owl-admin
+  region: us-east-1
+  stage: ${opt:stage, 'dev'}  # production
+
+resources:
+  Resources:
+    Logs:
+      Type: AWS::S3::Bucket
+
+    #
+    # source ~/cli-ve/bin/activate
+    # dev: aws --region us-east-1 --profile eth-owl-admin cloudfront create-invalidation --distribution-id E3KXOOOL877YMZ --paths '/*'
+    #
+
+    Cloudfront:
+      Type: AWS::CloudFront::Distribution
+      Properties:
+        DistributionConfig:
+          # Aliases:
+            # - # TODO
+          DefaultCacheBehavior:
+            Compress: true
+            ForwardedValues:
+              Cookies:
+                Forward: none
+              Headers:
+                - CloudFront-Viewer-Country
+              QueryString: false
+            TargetOriginId: ${self:provider}-${self:provider.stage}
+            ViewerProtocolPolicy: redirect-to-https
+          DefaultRootObject: index.html
+          Enabled: true
+          HttpVersion: http2
+          IPV6Enabled: true
+          Logging:
+            Bucket:
+              Fn::GetAtt: [ Logs, DomainName ]
+            IncludeCookies: true
+          Origins:
+            - DomainName: ${cf:frontend-${self:provider.stage}.FrontendDomainName.Value}
+              Id: ${self:provider}-${self:provider.stage}
+              S3OriginConfig:
+                OriginAccessIdentity: origin-access-identity/cloudfront/${cf:frontend-${self:provider.stage}.OriginAccessIdentity.Value}
+          PriceClass: PriceClass_All
+          ViewerCertificate:
+            # AcmCertificateArn: arn:aws:acm:us-east-1:908718356192:certificate/5cb8b494-b7ae-428a-82ec-a3de9e2e127f  # arn:aws:acm:us-east-1:908718356192:certificate/964fb882-9163-437e-bbf4-3885d4d00bb9
+            CloudFrontDefaultCertificate: true
+            MinimumProtocolVersion: TLSv1.2_2018
+            # SslSupportMethod: sni-only
